@@ -23,8 +23,9 @@ multiple CPU cores. These are configurable in the `.env` file. You should disabl
 need and give as much resources as you can to the remaining server(s).
 
 ## Configuration
-The sandbox behavior is determined on startup using environment variables. These variables are defined in the
-configuration file called `.env`. Once you make changes, you will need to restart the sandbox using 
+The sandbox behavior is determined on startup using environment variables. These variables need to defined in
+a `.env` configuration file. You can create this file by copying the provided `.env.example` file and adding
+your own `GITHUB_TOKEN` value. Once you make changes, you will need to restart the sandbox using 
 `docker-compose down` and `docker-compose up`. If you change the used databases (by selecting different HAPI images)
 you may also have to delete previous containers and volumes as described below.
 
