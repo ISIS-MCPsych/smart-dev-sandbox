@@ -106,7 +106,7 @@ services:
 
   smart-launcher: # ------------------------------------------------------------
     container_name: launcher
-    build: https://github.com/romancow/smart-launcher-v2.git
+    build: https://github.com/isis-mcpsych/smart-launcher-v2.git
     environment:
       # HOST                   : "${HOST}"
       NODE_ENV               : "production"
@@ -131,3 +131,15 @@ services:
       - $LAUNCHER_PORT:80
     scale: $LAUNCHER_ENABLED
 
+  mcpsych-cds: # ---------------------------------------------------------------
+    container_name: mcpsych-cds
+    build: "https://github.com/isis-mcpsych/mcpsych-cds.git#demo"
+    environment:
+      HOST: "${HOST}"
+      PORT: "8080"
+      VITE_DEMO_PATIENT_ID: "07e2c163-71f6-46f1-99d5-d43c1a002cf2"
+      VITE_FHIR_CLIENT_ID: 00000000-0000-0000-0000-000000000000
+    ports:
+      - $CDS_PORT:8080
+    command: ["sh", "-c", "npm run build && node build"]
+    scale: $CDS_ENABLED
