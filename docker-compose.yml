@@ -136,8 +136,10 @@ services:
     build:
       context: https://${GITHUB_TOKEN}:@github.com/isis-mcpsych/mcpsych-cds.git#demo
       dockerfile: Dockerfile
+      args:
+        MODE: "development"
     environment:
-      HOST: "${HOST}"
+      HOST: "0.0.0.0"
       VITE_DEMO_PATIENT_ID: "07e2c163-71f6-46f1-99d5-d43c1a002cf2"
       VITE_FHIR_REDIRECT_URI: "http://localhost:${CDS_PORT}"
     ports:
