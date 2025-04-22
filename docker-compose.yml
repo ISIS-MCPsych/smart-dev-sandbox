@@ -138,11 +138,11 @@ services:
       dockerfile: Dockerfile
       args:
         MODE: "development"
+        PUBLIC_DEMO_PATIENT_ID: "07e2c163-71f6-46f1-99d5-d43c1a002cf2"
+        PUBLIC_FHIR_REDIRECT_URI: "http://localhost:${CDS_PORT}"
+        PUBLIC_DEMO_PRINCETON_TASKS_URL: "http://leapstage.centralus.cloudapp.azure.com:8999/"
     environment:
       HOST: "0.0.0.0"
-      PUBLIC_DEMO_PATIENT_ID: "07e2c163-71f6-46f1-99d5-d43c1a002cf2"
-      PUBLIC_FHIR_REDIRECT_URI: "http://localhost:${CDS_PORT}"
-      PUBLIC_DEMO_PRINCETON_TASKS_URL: "http://leapstage.centralus.cloudapp.azure.com:8999/"
     ports:
       - $CDS_PORT:8080
     scale: $CDS_ENABLED
