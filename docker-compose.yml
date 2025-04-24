@@ -134,7 +134,7 @@ services:
   mcpsych-cds: # ---------------------------------------------------------------
     container_name: mcpsych-cds
     build:
-      context: https://${GITHUB_TOKEN}:@github.com/isis-mcpsych/mcpsych-cds.git#demo
+      context: https://${GITHUB_TOKEN}:@github.com/isis-mcpsych/mcpsych-cds.git
       dockerfile: Dockerfile
       args:
         MODE: "development"
